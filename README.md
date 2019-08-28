@@ -1,6 +1,6 @@
 # PexoPlayer
 
-[![AppCenter]()]()
+[![AppCenter](https://build.appcenter.ms/v0.1/apps/d918b5ba-166b-4637-be67-e9567c0b930e/branches/master/badge)](https://build.appcenter.ms/v0.1/apps/d918b5ba-166b-4637-be67-e9567c0b930e/branches/master/badge)
 
 ### Specs
 [![API](https://img.shields.io/badge/API-15%2B-orange.svg?style=flat)](https://android-arsenal.com/api?level=16)
