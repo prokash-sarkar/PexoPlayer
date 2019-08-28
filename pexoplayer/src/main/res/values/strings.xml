@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">PexoPlayer</string>
+
+    <!-- Broadcast Receivers -->
+    <string name="broadcast_buffer_update">broadcast_buffer_update</string>
+    <string name="broadcast_buffer_value">broadcast_buffer_value</string>
+    <string name="broadcast_seekbar_update">broadcast_seekbar_update</string>
+    <string name="broadcast_seekbar_value">broadcast_seekbar_value</string>
+    <string name="broadcast_update_ui">broadcast_update_ui</string>
+    <string name="broadcast_new_media_id">broadcast_new_media_id</string>
+    <string name="broadcast_shuffle_status">broadcast_shuffle_status</string>
+    <string name="broadcast_shuffle_type">broadcast_shuffle_type</string>
+    <string name="broadcast_repeat_status">broadcast_repeat_status</string>
+    <string name="broadcast_repeat_type">broadcast_repeat_type</string>
+
+    <string name="label_stop">Stop</string>
+    <string name="label_pause">Pause</string>
+    <string name="label_play">Play</string>
+    <string name="label_play_pause">Play and pause toggle</string>
+    <string name="label_previous">Previous track</string>
+    <string name="label_next">Next track</string>
+
+</resources>

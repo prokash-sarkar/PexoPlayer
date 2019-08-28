@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    def coreKtxVersion = '1.0.2'
+    implementation 'androidx.core:core-ktx:' + coreKtxVersion
+
+    def supportVersion = '1.0.2'
+    implementation 'androidx.appcompat:appcompat:' + supportVersion
+
+    def constraintVersion = '1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:' + constraintVersion
+
+    def legacySupportVersion = '1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:' + legacySupportVersion
+
+    def exoPlayerVersion = '2.10.0'
+    implementation 'com.google.android.exoplayer:exoplayer:' + exoPlayerVersion
+
+    def glideVersion = "4.9.0"
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
