@@ -28,6 +28,8 @@ public class MediaNotificationManager {
 
     private static final String TAG = "NotificationManager";
 
+    public static final String PEXO_PENDING_INTENT_KEY = "MediaNotificationManager";
+
     private static final String CHANNEL_ID = "com.ps.pexoplayer.channel";
     private static final int REQUEST_CODE = 101;
     public static final int NOTIFICATION_ID = 201;
@@ -188,6 +190,7 @@ public class MediaNotificationManager {
      */
     private PendingIntent createContentIntent() {
         Intent intent = new Intent(mMediaService, PexoMediaInstance.getInstance().getMainActivity());
+        intent.putExtra(PEXO_PENDING_INTENT_KEY, true);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         return PendingIntent.getActivity(
                 mMediaService, REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT);

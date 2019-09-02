@@ -264,7 +264,9 @@ public class MediaPlayerAdapter extends PlayerAdapter {
                 1.0f,
                 SystemClock.elapsedRealtime());
         mPlaybackInfoListener.onPlaybackStateChange(stateBuilder.build());
-        mPlaybackInfoListener.updateUI(mCurrentMedia.getDescription().getMediaId());
+        if (mCurrentMedia != null) {
+            mPlaybackInfoListener.updateUI(mCurrentMedia.getDescription().getMediaId());
+        }
     }
 
     /**
