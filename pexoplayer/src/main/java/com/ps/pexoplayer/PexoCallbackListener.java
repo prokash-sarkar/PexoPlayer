@@ -15,6 +15,8 @@ public interface PexoCallbackListener {
 
     void onPause();
 
+    void onStop();
+
     void onMediaSelected(String playlistId, MediaMetadataCompat mediaItem, int position);
 
     // for project structure

@@ -1,6 +1,6 @@
 # PexoPlayer
 
-[![AppCenter](https://build.appcenter.ms/v0.1/apps/d918b5ba-166b-4637-be67-e9567c0b930e/branches/master/badge)](https://build.appcenter.ms/v0.1/apps/d918b5ba-166b-4637-be67-e9567c0b930e/branches/master/badge) [![](https://jitpack.io/v/prokash-sarkar/PexoPlayer.svg)](https://jitpack.io/#prokash-sarkar/PexoPlayer)
+[![AppCenter](https://build.appcenter.ms/v0.1/apps/d918b5ba-166b-4637-be67-e9567c0b930e/branches/master/badge)](https://build.appcenter.ms/v0.1/apps/d918b5ba-166b-4637-be67-e9567c0b930e/branches/master/badge) [![](https://jitpack.io/v/prokash-sarkar/PexoPlayer.svg)](https://jitpack.io/#prokash-sarkar/PexoPlayer)[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e48ceb2fe33f48e8b6cffd9494efb077)](https://www.codacy.com/app/prokash-sarkar/PexoPlayer?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=prokash-sarkar/PexoPlayer&amp;utm_campaign=Badge_Grade)
 
 ### Specs
 [![API](https://img.shields.io/badge/API-15%2B-orange.svg?style=flat)](https://android-arsenal.com/api?level=16)
@@ -27,7 +27,7 @@ allprojects {
 }
 
 dependencies {
- implementation 'com.github.prokash-sarkar:PexoPlayer:v1.0.0-alpha-1-java'
+ implementation 'com.github.prokash-sarkar:PexoPlayer:v1.0.0-alpha-2-java'
 }
 ```
 
@@ -79,6 +79,7 @@ PexoPlayer takes a custom object wrapped in ```PexoMediaMetadata```. You need to
 
 List<PexoMediaMetadata> mediaItemList = new ArrayList<PexoMediaMetadata>();
 
+// Assuming you have a data object named as "data"
 PexoMediaMetadata pexoMediaMetadata = new PexoMediaMetadata(
                         data.getContentID(),
                         data.getArtistname(),
@@ -103,7 +104,7 @@ pexoPlayerManager.startPlayback();
 
 **Toggle playback state**
 
-> This will perform the opposite operation for current playback state. e.g. If playing it will stop, If stopped it will start playing
+> This will perform the opposite operation for current playback state. e.g. If playing the player will stop, If stopped the player will start playing again
 >
 
 ```java
@@ -120,6 +121,12 @@ pexoPlayerManager.onPlay();
 
 ```java
 pexoPlayerManager.onPause();
+```
+
+**Stop**
+
+```java
+pexoPlayerManager.onStop();
 ```
 
 **Skip to next**

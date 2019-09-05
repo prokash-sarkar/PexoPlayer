@@ -315,6 +315,15 @@ public class PexoPlayerManager implements MediaBrowserHelperCallback, PexoCallba
     }
 
     @Override
+    public void onStop() {
+        if (mMediaBrowserHelper != null) {
+            if (mOnAppOpen) {
+                mMediaBrowserHelper.getTransportControls().stop();
+            }
+        }
+    }
+
+    @Override
     public void onMediaSelected(String playlistId, MediaMetadataCompat mediaItem, int position) {
         if (mMediaBrowserHelper != null && mediaItem != null) {
             Log.d(TAG, "onMediaSelected: CALLED: " + mediaItem.getDescription().getMediaId());
