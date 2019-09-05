@@ -261,7 +261,7 @@ pexoPlayerManager.shuffleTrack()
 >
 
 If there's a track change in notification with "Next/Previous" you will get an event in
-```onPlayerMetadataChanged(MediaMetadataCompat metadata){}```
+```onPlayerMetadataChanged(PexoMediaMetadata metadata){}```
 
 If there's a playback state change in notification with "Play/Pause" you will get an event in ```onPlayerPlaybackStateChanged(PlaybackStateCompat state){}```
 
