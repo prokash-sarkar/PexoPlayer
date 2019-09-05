@@ -27,7 +27,7 @@ allprojects {
 }
 
 dependencies {
- implementation 'com.github.prokash-sarkar:PexoPlayer:v1.0.0-java'
+ implementation 'com.github.prokash-sarkar:PexoPlayer:v1.0.0-alpha-1-java'
 }
 ```
 
@@ -182,12 +182,24 @@ pexoPlayerManager.shuffleTrack()
 
     /*A track has been changed*/
     @Override
-    public void onPlayerMetadataChanged(MediaMetadataCompat metadata) {
+    public void onPlayerMetadataChanged(PexoMediaMetadata mediaMetadata) {
     }
     
     /*Playback state has changed e.g. play, pause, stop*/
     @Override
     public void onPlayerPlaybackStateChanged(PlaybackStateCompat state) {
+        if (state != null) {
+            switch (state.getState()) {
+                case PlaybackStateCompat.STATE_BUFFERING:
+                    break;
+                case PlaybackStateCompat.STATE_PLAYING:
+                    break;
+                case PlaybackStateCompat.STATE_PAUSED:
+                    break;
+                case PlaybackStateCompat.STATE_ERROR:
+                    break;
+            }
+        }
     }
 
     /*Controller has been disconnected*/
@@ -200,22 +212,37 @@ pexoPlayerManager.shuffleTrack()
     /*Update the seekbar's secondary position here*/
     @Override
     public void updatePlayerBuffer(int progress) {
-        seekBarMusic.setSecondaryProgress(progress);
+        seekBar.setSecondaryProgress(progress);
     }
 
     /*Update the seekbar position here*/
     @Override
     public void updatePlayerSeekBar(int progress, int max) {
+        seekBar.setProgress(progress);
     }
 
     /*Shuffle status has changed*/
     @Override
     public void updateShuffle(int state) {
+        switch (state) {
+            case PlaybackStateCompat.SHUFFLE_MODE_ALL:
+                break;
+            case PlaybackStateCompat.SHUFFLE_MODE_NONE:
+                break;
+        }
     }
 
     /*Repeat status has changed*/
     @Override
     public void updateRepeat(int state) {
+        switch (state) {
+            case PlaybackStateCompat.REPEAT_MODE_ALL:
+                break;
+            case PlaybackStateCompat.REPEAT_MODE_ONE:
+                break;
+            case PlaybackStateCompat.REPEAT_MODE_NONE:
+                break;
+        }
     }
 
     /*You can reload a previously played playlist by passing it here
@@ -230,8 +257,15 @@ pexoPlayerManager.shuffleTrack()
 
 **Notification Management**
 
-> PexoPlayer creates and handles the notification by itself after defining the proper media data object to the Playlist. It performs the play, pause and track change events from notification by itself. Callbacks are also provided by an interface. You only need to assign an activity for the pending intent
+> PexoPlayer creates and handles the notification by itself after defining the proper media data object to the Playlist. It performs the play, pause and track change events from notification by itself. Callbacks are also provided by an interface.
 >
+
+If there's a track change in notification with "Next/Previous" you will get an event in
+```onPlayerMetadataChanged(MediaMetadataCompat metadata){}```
+
+If there's a playback state change in notification with "Play/Pause" you will get an event in ```onPlayerPlaybackStateChanged(PlaybackStateCompat state){}```
+
+Also set an activity for the pending intent, so that a click on notification will get back to your activity
 
 ```java
 pexoPlayerManager.setPendingIntentClass(MainActivity.class);
