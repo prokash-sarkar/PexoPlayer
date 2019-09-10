@@ -27,6 +27,7 @@ allprojects {
 }
 
 dependencies {
+ implementation 'androidx.legacy:legacy-support-v4:1.0.0'
  implementation 'com.github.prokash-sarkar:PexoPlayer:v1.0.0-alpha-2-java'
 }
 ```
@@ -61,11 +62,11 @@ public PexoPlayerManager pexoPlayerManager = new PexoPlayerManager(context);
 In your activity, notify the ```PexoPlayerManager``` for ```onConfigurationChanged()```, ```onResume()``` and ```onDestroy()``` lifecycle state changes
 
 ```Java
+// Call inside "onCreate()"
+pexoPlayerManager.subscribeCallBack();
+
 // Call inside "onConfigurationChanged()"
 pexoPlayerManager.setConfigurationChanged(newConfig);
-
-// Call inside "onResume()"
-pexoPlayerManager.subscribeCallBack();
 
 // Call inside "onDestroy()"
 pexoPlayerManager.unSubscribeCallBack();

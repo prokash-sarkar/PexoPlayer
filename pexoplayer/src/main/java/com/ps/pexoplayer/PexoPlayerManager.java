@@ -187,7 +187,7 @@ public class PexoPlayerManager implements MediaBrowserHelperCallback, PexoCallba
             mPexoInstance.setCurrentSongPosition(position);
             mPexoInstance.setSongList(songList);
 
-            startPlayback();
+            //startPlayback();
         }
     }
 
@@ -403,7 +403,11 @@ public class PexoPlayerManager implements MediaBrowserHelperCallback, PexoCallba
         initUpdateUIBroadcastReceiver();
 
         if (!mPexoPrefManager.getPlaylistId().equals("")) {
-            mPexoEventListener.prepareLastPlayedMedia();
+            if (mPexoEventListener != null) {
+                mPexoEventListener.prepareLastPlayedMedia();
+            } else {
+                throw new RuntimeException("Set the PexoEventListener before calling subscribeCallBack()");
+            }
         } else {
             mMediaBrowserHelper.onStart(mWasConfigurationChange);
         }
